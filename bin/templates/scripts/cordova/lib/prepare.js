@@ -267,6 +267,55 @@ function handleOrientationSettings (platformConfig, infoPlist) {
     }
 }
 
+// Make sure only update properties from our target project
+function updateBuildPropertyLocal (proj, targetName, prop, value, build) {
+    try {
+        // Check if we have a valid target - during prepare we do not have it
+        const target = proj.pbxTargetByName(targetName);
+        const targetBuildConfigs = target && target.buildConfigurationList;
+
+        // Go to fallback in the catch and update build properties
+        if (!targetBuildConfigs) throw new CordovaError(`The target "${targetName}" is missing build configurations. Falling back to update build properties.`);
+
+        const COMMENT_KEY = /_comment$/;
+        const validConfigs = [];
+        const xcConfigList = proj.pbxXCConfigurationList();
+
+        // Collect the UUID's from the configuration of our target
+        for (const configName in xcConfigList) {
+            if (!COMMENT_KEY.test(configName) && targetBuildConfigs === configName) {
+                const buildVariants = xcConfigList[configName].buildConfigurations;
+
+                for (const item of buildVariants) {
+                    validConfigs.push(item.value);
+                }
+
+                break;
+            }
+        }
+
+        const configs = proj.pbxXCBuildConfigurationSection();
+
+        // Only update target props
+        for (const configName in configs) {
+            if (!COMMENT_KEY.test(configName)) {
+                if (!validConfigs.includes(configName)) continue;
+
+                const config = configs[configName];
+
+                if ((build && config.name === build) || (!build)) {
+                    config.buildSettings[prop] = value;
+                }
+            }
+        }
+    } catch (e) {
+        // fallback to default behavior on error
+        events.emit('verbose', e);
+
+        proj.updateBuildProperty(prop, value, build);
+    }
+}
+
 function handleBuildSettings (platformConfig, locations, infoPlist) {
     const pkg = platformConfig.getAttribute('ios-CFBundleIdentifier') || platformConfig.packageName();
     const targetDevice = parseTargetDevicePreference(platformConfig.getPreference('target-device', 'ios'));
@@ -274,6 +323,7 @@ function handleBuildSettings (platformConfig, locations, infoPlist) {
     const needUpdatedBuildSettingsForLaunchStoryboard = checkIfBuildSettingsNeedUpdatedForLaunchStoryboard(platformConfig, infoPlist);
     const swiftVersion = platformConfig.getPreference('SwiftVersion', 'ios');
     const wkWebViewOnly = platformConfig.getPreference('WKWebViewOnly');
+    const targetName = unorm.nfd(platformConfig.name());
 
     let project;
 
@@ -293,7 +343,7 @@ function handleBuildSettings (platformConfig, locations, infoPlist) {
 
     if (origPkg !== pkg) {
         events.emit('verbose', `Set PRODUCT_BUNDLE_IDENTIFIER to ${pkg}.`);
-        project.xcode.updateBuildProperty('PRODUCT_BUNDLE_IDENTIFIER', pkg);
+        updateBuildPropertyLocal(project.xcode, targetName, 'PRODUCT_BUNDLE_IDENTIFIER', pkg);
     }
 
     if (targetDevice) {
