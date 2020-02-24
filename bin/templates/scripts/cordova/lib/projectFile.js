@@ -41,8 +41,17 @@ function parseProjectFile (locations) {
     xcodeproj.parseSync();
 
     const xcBuildConfiguration = xcodeproj.pbxXCBuildConfigurationSection();
-    const plist_file_entry = _.find(xcBuildConfiguration, entry => entry.buildSettings && entry.buildSettings.INFOPLIST_FILE);
-    const plist_file = path.join(project_dir, plist_file_entry.buildSettings.INFOPLIST_FILE.replace(/^"(.*)"$/g, '$1').replace(/\\&/g, '&'));
+    let projectName = '';
+    const workspaceCollection = fs.readdirSync(project_dir).find(d => d.includes('.xcworkspace'));
+    if (workspaceCollection) {
+        projectName = fs.readdirSync(project_dir).find(d => d.includes('.xcworkspace')).replace('.xcworkspace', '');
+    }
+    const { buildSettings: { INFOPLIST_FILE: infoPlistFile } } = Object.values(xcBuildConfiguration).filter(({ buildSettings }) => (
+        buildSettings &&
+        buildSettings.INFOPLIST_FILE &&
+        projectName ? buildSettings.INFOPLIST_FILE.match(new RegExp(`/${projectName}-Info.plist"$`)) : false
+    ))[0];
+    const plist_file = path.join(project_dir, infoPlistFile.replace(/^"(.*)"$/g, '$1').replace(/\\&/g, '&'));
     const config_file = path.join(path.dirname(plist_file), 'config.xml');
 
     if (!fs.existsSync(plist_file) || !fs.existsSync(config_file)) {
