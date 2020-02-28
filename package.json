@@ -52,7 +52,7 @@
     "semver": "^6.3.0",
     "shelljs": "^0.5.3",
     "unorm": "^1.4.1",
-    "xcode": "^2.0.0",
+    "xcode": "github:erisu/cordova-node-xcode#feature/update-build-property-by-targetname",
     "xml-escape": "^1.1.0"
   },
   "nyc": {
