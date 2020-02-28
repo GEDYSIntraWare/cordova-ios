@@ -395,7 +395,6 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
 				WK_WEB_VIEW_ONLY = 1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.friendstring;
 			};
 			name = Debug;
 		};
@@ -436,7 +435,6 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
 				WK_WEB_VIEW_ONLY = 1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.friendstring;
 			};
 			name = Release;
 		};
