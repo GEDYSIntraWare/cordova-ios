@@ -52,7 +52,7 @@
     "semver": "^6.3.0",
     "shelljs": "^0.5.3",
     "unorm": "^1.4.1",
-    "xcode": "^2.0.0",
+    "xcode": "git+https://github.com/GEDYSIntraWare/cordova-node-xcode.git#targetfixed",
     "xml-escape": "^1.1.0"
   },
   "nyc": {
