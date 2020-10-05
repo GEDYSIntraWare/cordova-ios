@@ -43,6 +43,7 @@
 @property (nonatomic, strong, readwrite) id <WKUIDelegate> uiDelegate;
 @property (nonatomic, weak) id <WKScriptMessageHandler> weakScriptMessageHandler;
 @property (nonatomic, strong) CDVURLSchemeHandler * schemeHandler;
+@property (nonatomic, strong) CDVProxyHandler * proxyHandler;
 @property (nonatomic, readwrite) NSString *CDV_ASSETS_URL;
 @property (nonatomic, readwrite) Boolean cdvIsFileScheme;
 
@@ -200,6 +201,10 @@
         self.schemeHandler = [[CDVURLSchemeHandler alloc] initWithVC:vc];
         [configuration setURLSchemeHandler:self.schemeHandler forURLScheme:scheme];
     }
+
+    // Add proxy handler
+    self.proxyHandler = [[CDVProxyHandler alloc] initWithVC:vc];
+    [configuration setURLSchemeHandler:self.proxyHandler forURLScheme:@"proxy"];
 
     // re-create WKWebView, since we need to update configuration
     WKWebView* wkWebView = [[WKWebView alloc] initWithFrame:self.engineWebView.frame configuration:configuration];
