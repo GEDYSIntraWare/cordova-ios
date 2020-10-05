@@ -40,7 +40,7 @@
     NSString * stringToLoad = url.path;
     NSString * scheme = url.scheme;
 
-    if ([scheme isEqualToString:self.viewController.appScheme]) {
+    if ([scheme isEqualToString:@"proxy"]) {
         if ([stringToLoad hasPrefix:@"/_app_file_"]) {
             startPath = [stringToLoad stringByReplacingOccurrencesOfString:@"/_app_file_" withString:@""];
         } else {
