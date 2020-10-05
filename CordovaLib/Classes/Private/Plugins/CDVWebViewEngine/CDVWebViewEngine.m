@@ -204,8 +204,9 @@
     }
 
     // Add proxy handler
-    self.proxyHandler = [[CDVProxyHandler alloc] initWithVC:vc];
+    self.proxyHandler = [[CDVProxyHandler alloc] init];
     [configuration setURLSchemeHandler:self.proxyHandler forURLScheme:@"proxy"];
+    [configuration setURLSchemeHandler:self.proxyHandler forURLScheme:@"proxys"];
 
     // re-create WKWebView, since we need to update configuration
     WKWebView* wkWebView = [[WKWebView alloc] initWithFrame:self.engineWebView.frame configuration:configuration];

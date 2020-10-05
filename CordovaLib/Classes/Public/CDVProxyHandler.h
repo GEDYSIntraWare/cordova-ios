@@ -24,9 +24,9 @@
 
 @interface CDVProxyHandler : NSObject <WKURLSchemeHandler>
 
-@property (nonatomic, strong) CDVViewController* viewController;
+@property (nonatomic) Boolean isRunning;
 
-- (instancetype)initWithVC:(CDVViewController *)controller;
+- (instancetype)init;
 
 
 @end
