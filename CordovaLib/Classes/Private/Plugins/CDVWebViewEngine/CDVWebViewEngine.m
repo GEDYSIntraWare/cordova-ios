@@ -22,6 +22,7 @@
 #import "CDVWebViewProcessPoolFactory.h"
 #import <Cordova/NSDictionary+CordovaPreferences.h>
 #import "CDVURLSchemeHandler.h"
+#import "CDVProxyHandler.h"
 
 #import <objc/message.h>
 

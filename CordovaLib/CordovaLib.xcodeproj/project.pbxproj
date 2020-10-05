@@ -80,6 +80,8 @@
 		9052DE822150D040008E83D4 /* CDVGestureHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B082D31BB15CEA00D8DC35 /* CDVGestureHandler.m */; };
 		9052DE832150D040008E83D4 /* CDVIntentAndNavigationFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3093E2221B16D6A3003F381A /* CDVIntentAndNavigationFilter.m */; };
 		9052DE842150D040008E83D4 /* CDVHandleOpenURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED95CF91AB9028C008C4574 /* CDVHandleOpenURL.m */; };
+		94D0FE73252B6D5D00F4C7D8 /* CDVProxyHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 94D0FE71252B6D5D00F4C7D8 /* CDVProxyHandler.h */; };
+		94D0FE74252B6D5D00F4C7D8 /* CDVProxyHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D0FE72252B6D5D00F4C7D8 /* CDVProxyHandler.m */; };
 		9052DE892150D06B008E83D4 /* CDVDebug.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ED95CF21AB9028C008C4574 /* CDVDebug.h */; };
 		9052DE8A2150D06B008E83D4 /* CDVJSON_private.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ED95CF31AB9028C008C4574 /* CDVJSON_private.h */; };
 		9052DE8B2150D06B008E83D4 /* CDVPlugin+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ED95CF51AB9028C008C4574 /* CDVPlugin+Private.h */; };
@@ -165,6 +167,8 @@
 		7ED95D321AB9029B008C4574 /* NSDictionary+CordovaPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+CordovaPreferences.m"; sourceTree = "<group>"; };
 		7ED95D331AB9029B008C4574 /* NSMutableArray+QueueAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+QueueAdditions.h"; sourceTree = "<group>"; };
 		7ED95D341AB9029B008C4574 /* NSMutableArray+QueueAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+QueueAdditions.m"; sourceTree = "<group>"; };
+		94D0FE71252B6D5D00F4C7D8 /* CDVProxyHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVProxyHandler.h; sourceTree = "<group>"; };
+		94D0FE72252B6D5D00F4C7D8 /* CDVProxyHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVProxyHandler.m; sourceTree = "<group>"; };
 		A3B082D21BB15CEA00D8DC35 /* CDVGestureHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVGestureHandler.h; sourceTree = "<group>"; };
 		A3B082D31BB15CEA00D8DC35 /* CDVGestureHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVGestureHandler.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* CordovaLib_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CordovaLib_Prefix.pch; sourceTree = SOURCE_ROOT; };
@@ -289,6 +293,8 @@
 		7ED95D0E1AB9029B008C4574 /* Public */ = {
 			isa = PBXGroup;
 			children = (
+				94D0FE71252B6D5D00F4C7D8 /* CDVProxyHandler.h */,
+				94D0FE72252B6D5D00F4C7D8 /* CDVProxyHandler.m */,
 				7ED95D0F1AB9029B008C4574 /* CDV.h */,
 				7ED95D101AB9029B008C4574 /* CDVAppDelegate.h */,
 				7ED95D111AB9029B008C4574 /* CDVAppDelegate.m */,
@@ -358,6 +364,7 @@
 				C0C01EBC1E39131A0056E6CB /* CDVAppDelegate.h in Headers */,
 				C0C01EBD1E39131A0056E6CB /* CDVAvailability.h in Headers */,
 				C0C01EBE1E39131A0056E6CB /* CDVAvailabilityDeprecated.h in Headers */,
+				94D0FE73252B6D5D00F4C7D8 /* CDVProxyHandler.h in Headers */,
 				C0C01EBF1E39131A0056E6CB /* CDVCommandDelegate.h in Headers */,
 				C0C01EC01E39131A0056E6CB /* CDVCommandDelegateImpl.h in Headers */,
 				C0C01EC11E39131A0056E6CB /* CDVCommandQueue.h in Headers */,
@@ -537,6 +544,7 @@
 				9052DE7E2150D040008E83D4 /* NSDictionary+CordovaPreferences.m in Sources */,
 				9052DE7F2150D040008E83D4 /* NSMutableArray+QueueAdditions.m in Sources */,
 				9052DE802150D040008E83D4 /* CDVJSON_private.m in Sources */,
+				94D0FE74252B6D5D00F4C7D8 /* CDVProxyHandler.m in Sources */,
 				9052DE812150D040008E83D4 /* CDVLogger.m in Sources */,
 				9052DE822150D040008E83D4 /* CDVGestureHandler.m in Sources */,
 				9052DE832150D040008E83D4 /* CDVIntentAndNavigationFilter.m in Sources */,
