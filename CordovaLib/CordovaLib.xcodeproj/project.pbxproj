@@ -28,7 +28,7 @@
 		4F56D830254A2ED70063F1D6 /* CDVWebViewUIDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E23F8F723E16E96006CD852 /* CDVWebViewUIDelegate.m */; };
 		4F56D833254A2ED90063F1D6 /* CDVWebViewProcessPoolFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E23F8F523E16E96006CD852 /* CDVWebViewProcessPoolFactory.m */; };
 		4F56D836254A2EE10063F1D6 /* CDVWebViewEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E23F8FA23E16E96006CD852 /* CDVWebViewEngine.h */; };
-		4F56D839254A2EE40063F1D6 /* CDVWebViewProcessPoolFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E23F8F923E16E96006CD852 /* CDVWebViewProcessPoolFactory.h */; };
+		4F56D839254A2EE40063F1D6 /* CDVWebViewProcessPoolFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E23F8F923E16E96006CD852 /* CDVWebViewProcessPoolFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4F56D83C254A2F2F0063F1D6 /* CDVURLSchemeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F4D42BB23F218BA00501999 /* CDVURLSchemeHandler.m */; };
 		7E7F69B91ABA3692007546F4 /* CDVHandleOpenURL.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ED95CF81AB9028C008C4574 /* CDVHandleOpenURL.h */; };
 		7ED95D021AB9028C008C4574 /* CDVDebug.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ED95CF21AB9028C008C4574 /* CDVDebug.h */; };
